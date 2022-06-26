@@ -1,0 +1,7 @@
+https://github.com/bmellink/IBusBM
+https://registry.platformio.org/libraries/bmellink/IBusBM
+https://github.com/adis1313/iBUSTelemetry-Arduino
+
+
+
+https://www.stm32duino.com/viewtopic.php?p=10034
