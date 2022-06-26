@@ -19,7 +19,8 @@ class Remote{
     void telemetry();
     Context *context;
   private:
-    IBusBM IBus; // IBus object
+    IBusBM IBusServo;
+    IBusBM IBusSensor;
 };
 
 #endif

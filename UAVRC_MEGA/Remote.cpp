@@ -7,24 +7,32 @@
 #include "Remote.h"
 #include <IBusBM.h>
 
+ 
 #define EXT_SENSORS 10
 
 Remote::Remote(byte pin){
 }
 
+
+#define TEMPBASE 400    // base value for temperature is -40'C
+
+uint16_t speed=0;
+uint16_t temp=TEMPBASE+200; // start at 20'C
+
 void Remote::setup(Context &_context){
   context = &_context;
-  IBus.begin(Serial);
-  IBus.addSensor(IBUSS_RPM  );
-  //IBus.addSensor(3);
-  //IBus.addSensor(IBUSS_TEMP );
-  delay(200);
+  IBusServo.begin(Serial2); //digit 17
+  IBusSensor.begin(Serial3); // digit 14
 
-  //Serial.println(F("IBUS ready."));
+
+  IBusSensor.addSensor(2);//IBUSS_RPM
+  IBusSensor.addSensor(1);//IBUSS_TEMP
+
+  delay(200); 
 }
 
 int Remote::readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue){ 
-  uint16_t ch = IBus.readChannel(channelInput);
+  uint16_t ch = IBusServo.readChannel(channelInput);
   if (ch < 100) 
     return defaultValue;
   return map(ch, 1000, 2000, minLimit, maxLimit);
@@ -36,7 +44,9 @@ void Remote::apply(){
 }
 
 void Remote::telemetry(){
-  IBus.setSensorMeasurement(IBUSS_RPM  ,5);  
-  //IBus.setSensorMeasurement(3,5);  
-  //IBus.setSensorMeasurement(2,600);
+
+  IBusSensor.setSensorMeasurement(1, speed);
+  speed +=10;  // increase motor speed by 10 RPM
+  IBusSensor.setSensorMeasurement(2, temp++);  // increase temperature by 0.1 'C every loop
+
 }
