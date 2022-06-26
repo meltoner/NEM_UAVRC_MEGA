@@ -1,0 +1,2 @@
+Arduino Mega 2560 PIN mapping table
+- https://docs.arduino.cc/hacking/hardware/PinMapping2560
