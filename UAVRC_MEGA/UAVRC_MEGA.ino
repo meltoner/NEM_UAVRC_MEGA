@@ -126,6 +126,7 @@ void run_invoker(int i){
 }
 
 void loop(){
+  mpu.update();
   int actionIndex = invoker.apply();
   while(actionIndex != 100){
     run_invoker(actionIndex);
