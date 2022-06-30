@@ -24,7 +24,6 @@ void Remote::setup(Context &_context){
   IBusServo.begin(Serial2); //digit 17
   IBusSensor.begin(Serial3); // digit 14
 
-
   IBusSensor.addSensor(2);//IBUSS_RPM
   IBusSensor.addSensor(1);//IBUSS_TEMP
 
