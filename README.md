@@ -27,7 +27,7 @@ Sensors :
 
 Main components : 
 - Transmitter : flysky FS-I6X
-- Receiver : flysky FS-1a10b
+- Receiver : flysky FS-1A10B
 - Arduino mega pro 2560 
 
 Other: 
