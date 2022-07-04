@@ -25,10 +25,13 @@ Sensors :
 - MPU : MPU6050
 - Voltage sensor 0-25v MH-electronic
 
-Other: 
+Main components : 
 - Transmitter : flysky FS-I6X
 - Receiver : flysky FS-1a10b
 - Arduino mega pro 2560 
+
+Other: 
+
 - 10mm LED Green and Red
 - RGB LED
 - 3 Pin Female connectors, ribbon cable, conectors, 3d mount board, box, battery, etc
