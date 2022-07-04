@@ -27,6 +27,7 @@ Sensors :
 
 Other: 
 - Transmitter : flysky FS-I6X
+- Receiver : flysky FS-1a10b
 - Arduino mega pro 2560 
 - 10mm LED Green and Red
 - RGB LED
