@@ -4,7 +4,7 @@ NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
 
 ## Software Features :
 
-- Software utilises an MPU, GPS, Servo, ESC, magnetometer and an afidromous remote control, powered by an arduino mega pro.
+- Software utilises an MPU, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an arduino mega pro.
 - Sensors and accuators are all in classes
 - Considers seven interval / frequencies of task execution
 - Controls steering based on target 
