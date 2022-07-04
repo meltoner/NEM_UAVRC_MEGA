@@ -31,4 +31,4 @@ Other:
 - Arduino mega pro 2560 
 - 10mm LED Green and Red
 - RGB LED
-- female, pins, cable, conectors, 3d mount board, box, battery, etc
+- 3 Pin Female connectors, ribbon cable, conectors, 3d mount board, box, battery, etc
