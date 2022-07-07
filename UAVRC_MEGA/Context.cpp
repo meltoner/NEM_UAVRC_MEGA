@@ -24,28 +24,28 @@ void Context::reflectSensor(float value, byte precission){
 
 void Context::apply(){ // takes 4% of memory
 
-//  reflectSensor(capacity, 1); 
-//  reflectSensor(voltage, 1); 
-//
-//  for(int i = 0; i < 4; i++)
-//    reflectSensor(positional[i], 1); // mpu: x, y, z, mag: z
-//
-//  // 0 {mag offset}, 1 {true heading (mpu z + mag offset)}, 2 {difference of true heading and target heading}
-//  for(int i = 0; i < 3; i++)
-//    reflectSensor(derivatives[i], 1); // offset, heading
-//
-//  for(int i = 0; i < 2; i++)
-//    reflectSensor(actuators[i], 1); // Servo Steer value, Throttle    
+  reflectSensor(capacity, 1); 
+  reflectSensor(voltage, 1); 
+
+  for(int i = 0; i < 4; i++)
+    reflectSensor(positional[i], 1); // mpu: x, y, z, mag: z
+
+  // 0 {mag offset}, 1 {true heading (mpu z + mag offset)}, 2 {difference of true heading and target heading}
+  for(int i = 0; i < 3; i++)
+    reflectSensor(derivatives[i], 1); // offset, heading
+
+  for(int i = 0; i < 2; i++)
+    reflectSensor(actuators[i], 1); // Servo Steer value, Throttle    
 
   // Flysky remote control values
   for(int i = 0; i < 10; i++)
     reflectSensor(ext_sensors[i], 0);
 
-//  for(int i = 0; i < 2; i++)
-//    reflectSensor(latlng[i], 6); // current gps
-//
-//  for(int i = 0; i < 3; i++)
-//    reflectSensor(targets[i], 1); // Target heading, GPS return to home target heading, Gps return to home target distance in meters
+  for(int i = 0; i < 2; i++)
+    reflectSensor(latlng[i], 6); // current gps
+
+  for(int i = 0; i < 3; i++)
+    reflectSensor(targets[i], 1); // Target heading, GPS return to home target heading, Gps return to home target distance in meters
   
   Serial.println(F("")); 
 

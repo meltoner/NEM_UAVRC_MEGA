@@ -12,7 +12,7 @@
 // - Computes degrees heading at boot time, used as an offcet for the mpu degree heading
 // - Derives distance and degree from a target gps LAT LOT
 // - Return to home on signal loss
-// - pending-Detection of low battery and return to home
+// - Detection of low battery and return to home
 // 
 // ## Hardware
 // 
@@ -39,6 +39,7 @@
 #include "Remote.h"
 #include "Home.h"
 #include "Blink.h"
+#include "RGB.h"
 #include "Battery.h"
 #include <EEPROM.h>
 
@@ -53,6 +54,7 @@ Throttle throttle(2);
 Remote remote(0);
 Home home(0);
 Blink blink(0);
+RGB rgb(0);
 Battery battery(0);
 
 //-----------------------------------------
@@ -60,6 +62,7 @@ Battery battery(0);
 void setup() {
   context.setup();
   blink.setup(context);
+  rgb.setup(context);
   remote.setup(context);
   throttle.setup(context);
   delay(2000);
@@ -81,16 +84,18 @@ void apply_fast_invoker(){
   remote.apply();
   steer.apply();
   throttle.apply();
+
 }
 
 void apply_invoker(){
   gps.apply();
   home.apply();
+  rgb.apply();
 }
 
 void apply_slow_invoker(){
   context.apply(); // every 0.5 second printout / log enviromental variables
-  remote.telemetry(); 
+  remote.telemetry();
 }
 
 void heartBeat(){
@@ -102,7 +107,6 @@ void heartBeat(){
 void apply_slower_invoker(){
   home.apply();
   battery.apply();
-
 }
 
 void updateMagOffset(){

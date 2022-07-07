@@ -26,6 +26,7 @@ void Gps::apply(){
   
   if(context->isGPSLocked){
    context->intervals[5] = 1003;
+   context->color = 1;
    processTarget();
   }
 

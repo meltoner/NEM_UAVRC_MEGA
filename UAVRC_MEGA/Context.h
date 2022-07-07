@@ -57,7 +57,7 @@ class Context{
 
     // Server and motor values
     byte actuators[2] = {0, 0}; // servo, speed
-  
+    byte color = 0;
     // Invoker variables - execution functions frequencies
     int intervals[8] = {10, 52, 104, 506, 1008, 3003, 10000, 3000};
     unsigned long now = millis();

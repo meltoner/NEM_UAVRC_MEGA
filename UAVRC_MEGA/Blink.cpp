@@ -11,10 +11,10 @@ Blink::Blink(byte pin){}
 
 void Blink::setup(Context &_context){
   context = &_context;
-  pinMode(12, OUTPUT);
+  pinMode(47, OUTPUT);
   apply();
 }
 
 void Blink::apply(){
-  digitalWrite(12, !digitalRead(12));
+  digitalWrite(47, !digitalRead(47));
 }

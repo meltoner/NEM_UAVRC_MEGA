@@ -24,6 +24,7 @@ void Home::apply(){
   
   // Derive target heading and speed from gps target
   if(context->toHomeActive){
+    context->color = 2;
     context->targets[0] = context->targets[1];
 
     if(context->targets[2] > 25){
