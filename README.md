@@ -19,7 +19,7 @@ NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
 
 Sensors :
 
-- Gps : M8n
+- Gps : Ublox M8N with compass
 - Magmetometer : M8n's HMC5883
 - Receiver : flysky F9-ia10b
 - MPU : MPU6050
