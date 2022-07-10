@@ -16,8 +16,7 @@ void Steer::setup(Context &_context){
   context = &_context;
   steer.attach(_pin);
   on = true;
-  setSteer(center);
-  //Serial.println(F("Steer ready."));
+  setSteer(context->steer_center);
 }
 
 int Steer::getHeadingDifference(){
@@ -46,16 +45,16 @@ void Steer::apply(){
   sensorValue = context->transferFunction(sensorValue, 3, 6, 30);
 
   //sensorValue = (int)((float)sensorValue * (abs((float)sensorValue)/30));
-  int value = center - sensorValue;
+  int value = context->steer_center - sensorValue;
 
   if(context->isSwitchA())
     if(abs(sensorValue) < 5)
-      value = center - getHeadingDifference();
+      value = context->steer_center - getHeadingDifference();
     else
-      context->targets[0] = context->derivatives[1] + sensorValue*1.2;      
+      context->targets[0] = context->derivatives[1] + sensorValue * 1.2;      
     
-  // save power when reached center
-  if(context->actuators[0] == value && abs(value - center) < 4 ){
+  // save power when reached context->steer_center
+  if(context->actuators[0] == value && abs(value - context->steer_center) < 4 ){
     if(on && (context->now - applied) > 1000  ){    
       steer.detach();
       on = false;      
@@ -71,8 +70,3 @@ void Steer::apply(){
     setSteer( value );
 
 }
-
-//boolean Steer::hasNewDegree(){
-//  if(context->isSwitchB())
-//    context->targets[0] = context->derivatives[1];
-//}

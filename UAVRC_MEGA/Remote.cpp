@@ -43,9 +43,6 @@ void Remote::apply(){
 }
 
 void Remote::telemetry(){
-
-  IBusSensor.setSensorMeasurement(1, speed);
-  speed +=10;  // increase motor speed by 10 RPM
+  IBusSensor.setSensorMeasurement(1, context->targets[2]);  
   IBusSensor.setSensorMeasurement(2, temp++);  // increase temperature by 0.1 'C every loop
-
 }

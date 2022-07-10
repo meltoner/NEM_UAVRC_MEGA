@@ -16,7 +16,7 @@ void Gps::setup(Context &_context){
 }
 
 void Gps::apply(){
-  while (Serial1.available())
+  while (Serial1.available()>0)
     gps.encode(Serial1.read());   
 
   context->latlng[0] = gps.location.lat();

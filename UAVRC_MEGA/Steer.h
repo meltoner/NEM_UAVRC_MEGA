@@ -17,8 +17,6 @@ class Steer{
     void apply();
     void setSteer(int value);
     int getHeadingDifference();
-    //boolean hasNewDegree();
-    int center = 86;
 
   private:
     byte _pin;

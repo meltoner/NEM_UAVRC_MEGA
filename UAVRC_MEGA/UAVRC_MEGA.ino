@@ -99,7 +99,6 @@ void apply_slow_invoker(){
 }
 
 void heartBeat(){
-  //dynamic periodicity 
   // Every : 3s when no gps, 1sec when gps lock, 0.5 seconds when returing to home is active, 0.1 second when power is less than 30%.
   blink.apply();
 }
@@ -124,7 +123,6 @@ void run_invoker(int i){
       case 5: heartBeat(); break;
       case 6: updateMagOffset();break;
       case 7: home.bursts();break;
-            break;
       case 100: break;
     }
 }

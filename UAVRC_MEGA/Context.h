@@ -37,6 +37,7 @@ class Context{
 
     byte toHomeSpeed = 50;
     float toHomeSpeedWeight = 1;
+    byte steer_center = 86;
 
     boolean toHomeWait = false;
     boolean toHomeActive = false;
