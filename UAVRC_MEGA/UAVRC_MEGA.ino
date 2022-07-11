@@ -7,16 +7,21 @@
 // 
 // ## Software Features :
 // 
-// - Software utilises an MPU, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an arduino mega pro.
+// - Software utilises an MPU6050, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an arduino mega pro.
 // - Sensors and accuators are all in classes
-// - Considers seven interval / frequencies of task execution
-// - Controls steering based on target 
+// - Impeleent seven tasks execution frequencies
+// - Adaptive steering based on target degrees
 // - Boots esc motor, and applies a non liner transfer function to the speed remote input
 // - Computes degrees heading at boot time, used as an offcet for the mpu degree heading
-// - Derives distance and degree from a target gps LAT LOT
-// - Return to home on signal loss
+// - Derives distance and degrees from a target gps LAT LOT
+// - Return to target gps / home on signal loss or switch D
+// - Adaptive speed while approaching target
 // - Detection of low battery and return to home
-// - Transmits distance of vehicle from Home
+// - Transmits distance of vehicle from target gps
+// - Lowers throttle while turning
+// - RGB Led indicator - no gps red, gps lock - green, return to home blue
+// - Variable led blinking indicator
+// - Target gps restoration, after power loss
 // 
 // ## Hardware
 // 
