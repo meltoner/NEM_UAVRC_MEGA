@@ -1,10 +1,13 @@
-// Konstantinos Papageorgiou - 2022 - kp@rei.gr
+// @author : Konstantinos Papageorgiou - 2022 - kp@rei.gr
+// @repo: https://github.com/meltoner/NEM_UAVRC_MEGA
 //
-// # NEM UAVRC MEGA Unmanned Vehicle Remote controlled
+// # NEM UAVRC MEGA
+// 
+// NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
 // 
 // ## Software Features :
 // 
-// - Software utilises an MPU, GPS, Servo, ESC, magnetometer and a remote control input, in an arduino leonardo.
+// - Software utilises an MPU, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an arduino mega pro.
 // - Sensors and accuators are all in classes
 // - Considers seven interval / frequencies of task execution
 // - Controls steering based on target 
@@ -13,20 +16,29 @@
 // - Derives distance and degree from a target gps LAT LOT
 // - Return to home on signal loss
 // - Detection of low battery and return to home
+// - Transmits distance of vehicle from Home
 // 
 // ## Hardware
 // 
 // Sensors :
 // 
-// - Gps : M8n
+// - Gps : Ublox M8N with compass
 // - Magmetometer : M8n's HMC5883
 // - Receiver : flysky F9-ia10b
 // - MPU : MPU6050
 // - Voltage sensor 0-25v MH-electronic
 // 
-// Other: 
+// Main components : 
 // - Transmitter : flysky FS-I6X
-// - Arduino MEGA 
+// - Receiver : [flysky FS-1A10B](https://www.flysky-cn.com/ia10b-canshu)
+// - Arduino mega pro 2560 
+// 
+// Other: 
+// 
+// - 10mm LED Green and Red
+// - RGB LED
+// - 3 Pin Female connectors, ribbon cable, conectors, 3d mount board, box, battery, etc
+
 
 #include "Context.h"
 #include "Invoker.h"

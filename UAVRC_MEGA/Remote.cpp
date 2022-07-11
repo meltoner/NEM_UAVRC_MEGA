@@ -21,11 +21,11 @@ uint16_t temp=TEMPBASE+200; // start at 20'C
 
 void Remote::setup(Context &_context){
   context = &_context;
-  IBusServo.begin(Serial2); //digit 17
+  IBusServo.begin(Serial2); // digit 17
   IBusSensor.begin(Serial3); // digit 14
 
-  IBusSensor.addSensor(2);//IBUSS_RPM
   IBusSensor.addSensor(1);//IBUSS_TEMP
+  IBusSensor.addSensor(2);//IBUSS_RPM
 
   delay(200); 
 }
@@ -43,6 +43,6 @@ void Remote::apply(){
 }
 
 void Remote::telemetry(){
-  IBusSensor.setSensorMeasurement(1, context->targets[2]);  
-  IBusSensor.setSensorMeasurement(2, temp++);  // increase temperature by 0.1 'C every loop
+  IBusSensor.setSensorMeasurement(1, temp++);  // increase temperature by 0.1 'C every loop
+  IBusSensor.setSensorMeasurement(2, context->targets[2]);  
 }

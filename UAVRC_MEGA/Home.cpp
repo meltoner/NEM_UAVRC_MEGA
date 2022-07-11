@@ -15,7 +15,7 @@ void Home::setup(Context &_context){
 
 void Home::apply(){
   // Update return to home gps target
-  if( context->isSwitchC() && context->isGPSLocked ){    
+  if( context->isSwitchB() && context->isGPSLocked ){    
     context->setGPSTarget( context->latlng[0], context->latlng[1]);
     context->targets[0] = context->targets[1];
   }
@@ -27,23 +27,18 @@ void Home::apply(){
     context->color = 2;
     context->targets[0] = context->targets[1];
 
-    if(context->targets[2] > 25){
+    for(int i = 0 ;i < 5;i++){
+      if(context->targets[2] > distance[i]){
+        context->toHomeSpeedWeight = speedWeight[i];
 
-      context->toHomeSpeedWeight = 0.9;
-      if(context->toHomeWait){
-        context->toHomeSpeedWeight = 0;
-        context->intervals[7] = 5000;
-      }else{
-        context->intervals[7] = 5000;
-      }
+        if(context->toHomeWait){
+          context->toHomeSpeedWeight = 0;
+          context->intervals[7] = offTime[i];
+        }else{
+          context->intervals[7] = onTime[i];
+        }
 
-    }else{
-      context->toHomeSpeedWeight = 0.7;
-      if(context->toHomeWait){
-        context->toHomeSpeedWeight = 0;
-        context->intervals[7] = 8000;
-      }else{
-        context->intervals[7] = 2500;
+        break;
       }
     }
 
