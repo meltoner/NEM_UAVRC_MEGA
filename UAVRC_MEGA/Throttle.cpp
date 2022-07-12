@@ -1,6 +1,6 @@
 /*
   Throttle.cpp - Library for wraping the functions controling the Throttle
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022
 */
 
 #include "Arduino.h"

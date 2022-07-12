@@ -1,6 +1,6 @@
 /*
   Context.h - Library for wraping the functions controling the Context / enviroment information
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022  
 */
 
 #ifndef Context_h
@@ -60,7 +60,7 @@ class Context{
     byte actuators[2] = {0, 0}; // servo, speed
     byte color = 0;
     // Invoker variables - execution functions frequencies
-    int intervals[8] = {10, 52, 104, 506, 1008, 3003, 10000, 3000};
+    int intervals[8] = {10, 52, 104, 506, 1008, 2003, 10000, 3000};
     unsigned long now = millis();
     unsigned long timers[8] = {now, now, now, now, now, now, now};
 

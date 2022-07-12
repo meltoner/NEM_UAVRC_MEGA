@@ -1,6 +1,6 @@
 /*
   Mpu.h - Library for wraping the functions controling the Mpunometer
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022  
 */
 #ifndef Mpu_h
 #define Mpu_h

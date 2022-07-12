@@ -1,6 +1,6 @@
 /*
   Mpu.h - Library for wraping the functions controling the Mpunometer
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022 
 */
 
 #include "Arduino.h"
@@ -24,7 +24,7 @@ void Mpu::setup(Context &_context){
   Wire.setWireTimeout(3000, true); //timeout value in uSec
   
   while(sensor.begin() != 0);
-    Serial.println(F("MPU6050 not detected!"));
+  
   Serial.println(F("Do not move"));
   delay(1000);
   sensor.calcOffsets(true, true);

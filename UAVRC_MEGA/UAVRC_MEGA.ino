@@ -1,4 +1,4 @@
-// @author : Konstantinos Papageorgiou - 2022 - kp@rei.gr
+// @author : Konstantinos Papageorgiou - 2022 - kp at rei.gr
 // @repo: https://github.com/meltoner/NEM_UAVRC_MEGA
 //
 // # NEM UAVRC MEGA
@@ -116,12 +116,11 @@ void apply_slow_invoker(){
 }
 
 void heartBeat(){
-  // Every : 3s when no gps, 1sec when gps lock, 0.5 seconds when returing to home is active, 0.1 second when power is less than 30%.
+  // Every : 2s when no gps, 1sec when gps lock, 0.5 seconds when returing to home is active, 0.1 second when power is less than 30%.
   blink.apply();
 }
 
 void apply_slower_invoker(){
-  home.apply();
   battery.apply();
 }
 

@@ -1,6 +1,6 @@
 /*
   Remote.h - Library for wraping the functions controling the remote control i/o
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022 
 */
 
 #ifndef Remote_h

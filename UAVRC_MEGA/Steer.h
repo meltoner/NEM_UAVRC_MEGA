@@ -1,6 +1,6 @@
 /*
   Steer.h - Library for wraping the functions controling Steer
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022 
 */
 
 #ifndef Steer_h

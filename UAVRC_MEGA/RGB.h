@@ -1,6 +1,6 @@
 /*
   Blink.h - Library for wraping the functions controling the Blink 
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022
 */
 
 #ifndef RGB_h

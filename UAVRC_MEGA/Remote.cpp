@@ -1,6 +1,6 @@
 /*
   Remote.h - Library for wraping the functions Remote control i/o
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022
 */
 
 #include "Arduino.h"

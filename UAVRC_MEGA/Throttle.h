@@ -1,6 +1,6 @@
 /*
   Throttle.h - Library for wraping the functions controling the Throttlenometer
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022 
 */
 #ifndef Throttle_h
 #define Throttle_h

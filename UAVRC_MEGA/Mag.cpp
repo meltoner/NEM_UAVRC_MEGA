@@ -1,6 +1,6 @@
 /*
   Mag.h - Library for wraping the functions controling the Magnometer
-  Created Konstantinos Papageorgiou  
+  Author - Konstantinos Papageorgiou kp at rei.gr 2022
 */
 
 #include "Arduino.h"
