@@ -13,21 +13,16 @@
 Remote::Remote(byte pin){
 }
 
-
-#define TEMPBASE 400    // base value for temperature is -40'C
-
-uint16_t speed=0;
-uint16_t temp=TEMPBASE+200; // start at 20'C
-
 void Remote::setup(Context &_context){
   context = &_context;
-  IBusServo.begin(Serial2); // digit 17
+  IBusServo.begin(Serial2);  // digit 17
   IBusSensor.begin(Serial3); // digit 14
 
-  IBusSensor.addSensor(1);//IBUSS_TEMP
-  IBusSensor.addSensor(2);//IBUSS_RPM
-
+  IBusSensor.addSensor(0x00); // Voltage sensor // shown as IntV2
+  IBusSensor.addSensor(0x02); // GPS distance from home
+  //IBusSensor.addSensor(0x14); // GPS degrees from home 
   delay(200); 
+
 }
 
 int Remote::readChannel(byte channelInput, int minLimit, int maxLimit, int defaultValue){ 
@@ -43,6 +38,7 @@ void Remote::apply(){
 }
 
 void Remote::telemetry(){
-  IBusSensor.setSensorMeasurement(1, temp++);  // increase temperature by 0.1 'C every loop
-  IBusSensor.setSensorMeasurement(2, context->targets[2]);  
+  IBusSensor.setSensorMeasurement(1, context->voltage * 100);
+  IBusSensor.setSensorMeasurement(2, context->targets[2]);
+  //IBusSensor.setSensorMeasurement(3, (uint16_t)abs(context->targets[1]));
 }

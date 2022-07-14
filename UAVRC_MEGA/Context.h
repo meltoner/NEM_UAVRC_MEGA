@@ -31,7 +31,7 @@ class Context{
     // GPS related
     boolean isGPSLocked = false;
 
-    double latlng[2] PROGMEM = {0, 0}; // gps position
+    double latlng[2] = {0, 0}; // gps position
     double TARGET_LAT = 37.9584512; //Akropolis
     double TARGET_LNG = 23.7502464;
 
@@ -45,7 +45,7 @@ class Context{
     // Positional related values
     float positional[4] = {0,0,0,0}; // x, y, z, magz
     float derivatives[3] = {0, 0, 0}; // offset, headings,target heading diff
-    float targets[3] = {0, 0, 0}; // heading target, target gps degree, target gps distance meters
+    float targets[5] = {0, 0, 0, 0, 0}; // heading target, target gps degree, target gps distance meters, x distance, y distance
 
     // Remote controler
     byte ext_sensors[10] = {0,0,0,0,0,0,0,0,0,0}; // flysky gradient, switches

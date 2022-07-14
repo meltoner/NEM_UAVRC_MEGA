@@ -58,7 +58,6 @@
 #include "Blink.h"
 #include "RGB.h"
 #include "Battery.h"
-#include <EEPROM.h>
 
 Context context(0);
 Invoker invoker(0);

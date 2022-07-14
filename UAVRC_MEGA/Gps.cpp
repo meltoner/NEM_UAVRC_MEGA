@@ -33,6 +33,24 @@ void Gps::apply(){
 }
 
 void Gps::processTarget(){ 
-  context->targets[1] = gps.courseTo(context->latlng[0], context->latlng[1], context->TARGET_LAT, context->TARGET_LNG) ;  
-  context->targets[2] = gps.distanceBetween(context->latlng[0], context->latlng[1], context->TARGET_LAT, context->TARGET_LNG) ;  
+  context->targets[1] = gps.courseTo(
+    context->latlng[0], context->latlng[1], 
+    context->TARGET_LAT, context->TARGET_LNG
+  );  
+
+  context->targets[2] = gps.distanceBetween(
+    context->latlng[0], context->latlng[1], 
+    context->TARGET_LAT, context->TARGET_LNG
+  );
+
+//  context->targets[3] = gps.distanceBetween(
+//    context->latlng[0], context->latlng[1], 
+//    context->latlng[0], context->TARGET_LNG
+//  );
+//
+//  context->targets[4] = gps.distanceBetween(
+//    context->latlng[0], context->latlng[1], 
+//    context->TARGET_LAT, context->latlng[1]
+//  );
+
 }
