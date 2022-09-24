@@ -2,7 +2,7 @@
 
 NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
 
-![Shield diagram](pcb/NEM_UAVRC_MEGA_CONNECTIONS.png)
+<center>![Shield diagram](pcb/NEM_UAVRC_MEGA_CONNECTIONS.png)</center>
 
 ## Software Features :
 
