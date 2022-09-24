@@ -2,6 +2,8 @@
 
 NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
 
+![Shield diagram(pcb/NEM_UAVRC_MEGA_CONNECTIONS.png)
+
 ## Software Features :
 
 - Software utilises an MPU6050, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an Arduino mega pro.
@@ -27,13 +29,13 @@ Sensors :
 - GPS : [Ublox M8N with compass](https://www.aliexpress.com/item/4001267138914.html)
 - Magmetometer : M8n's HMC5883
 - MPU : [MPU6050](https://www.aliexpress.com/item/32340949017.html)
+- Receiver  [flysky F9-ia10b](https://www.aliexpress.com/item/1005002151189775.html)
 - Voltage sensor 0-25v [MH-electronic](https://www.hellasdigital.gr/electronics/sensors/current-sensors/voltage-sensor-module-for-robot-arduino-dc-0-25-v/)
 
 Components : 
 
-- Transmitter [flysky FS-I6X](https://www.aliexpress.com/item/1005002086903692.html)
-- Receiver  [flysky F9-ia10b](https://www.aliexpress.com/item/1005002151189775.html)
 - [Arduino mega pro 2560](https://www.aliexpress.com/item/1005002828018807.html)
+- Transmitter [flysky FS-I6X](https://www.aliexpress.com/item/1005002086903692.html)
 - DC to DC Step down [3 amp](https://grobotronics.com/dc-dc-step-down-1.3-35v-3a.html)
 - DC to DC Step down ultra small [2.5 amp](https://www.aliexpress.com/item/32880983608.html)
 - Solid state 2 channel relay [SSR 5V 2A - 2 Channel](https://grobotronics.com/relay-module-ssr-5v-2a-2-channel.html)
