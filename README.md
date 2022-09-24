@@ -45,7 +45,7 @@ Components :
 - High Power Led 3W - [Green](https://grobotronics.com/high-power-led-3w-green-emitter-2.html)
 - RGB LED [anode](https://grobotronics.com/led-clear-5mm-rgb-common-anode.html)
 - 3X 220Ohm [resistance](https://grobotronics.com/resistor-1-4w-metal-1-220ohm.html)
-- [Battery LI-PO](http://www.nemhobby.com/nem-li-po-7-4v-2500mah-20c-500-charges-p31134.html)
+- [NEM Battery LI-PO 7.4v 2500mAh](http://www.nemhobby.com/nem-li-po-7-4v-2500mah-20c-500-charges-p31134.html)
 - [Male Pin headers](https://grobotronics.com/pin-header-1x40-male-2.54mm-black-long-centered.html)
 - [Female Pin headers](https://grobotronics.com/pin-header-1x10-female-2.54mm.html)
 - [Cable with compatible JST BEC](http://www.nemhobby.com/plug-extension-silicone-wire-10cm-with-jst-gold-connectors-male-p34787.html)
