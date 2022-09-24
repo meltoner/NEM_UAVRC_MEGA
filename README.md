@@ -55,5 +55,7 @@ Components :
 - Red, black wire
 - PCB Etching agent
 - [1mm drills](https://www.ergaleiogatos.gr/shop/trypania-sidirou-hss-bluespot-set-10-temachion/)
+- [Copper plate](https://grobotronics.com/prototyping-copper-board-100x75mm-0.8mm-35um-2-layer.html)
+- [pilot marker](https://goniasou.gr/pilot-markadoros-anexitilos-twin-marker-begreen/)
 - NEM PCB Shield
 
