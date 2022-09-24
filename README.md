@@ -27,7 +27,7 @@ Sensors :
 - GPS : [Ublox M8N with compass](https://www.aliexpress.com/item/4001267138914.html)
 - Magmetometer : M8n's HMC5883
 - MPU : [MPU6050](https://www.aliexpress.com/item/32340949017.html)
-- Voltage sensor 0-25v MH-electronic
+- Voltage sensor 0-25v [MH-electronic](https://www.hellasdigital.gr/electronics/sensors/current-sensors/voltage-sensor-module-for-robot-arduino-dc-0-25-v/)
 
 Components : 
 
