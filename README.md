@@ -46,12 +46,12 @@ Components :
 - Battery 7.4V-24V
 - [Male Pin headers](https://grobotronics.com/pin-header-1x40-male-2.54mm-black-long-centered.html)
 - [Female Pin headers](https://grobotronics.com/pin-header-1x10-female-2.54mm.html)
-- (Cable with compatible JST BEC)[http://www.nemhobby.com/plug-extension-silicone-wire-10cm-with-jst-gold-connectors-male-p34787.html]
-- (XT60 Gold Connectors -Set)[http://www.nemhobby.com/xt60-gold-connectors-set-p32855.html]
-- (T-Plug Gold Connector -Male)[http://www.nemhobby.com/t-plug-gold-connector-male-p34785.html]
-- (Ribbon cable)[https://grobotronics.com/ribbon-cable-28awg-0.081mm2-14-wire.html]
+- [Cable with compatible JST BEC](http://www.nemhobby.com/plug-extension-silicone-wire-10cm-with-jst-gold-connectors-male-p34787.html)
+- [XT60 Gold Connectors - Set](http://www.nemhobby.com/xt60-gold-connectors-set-p32855.html)
+- [T-Plug Gold Connector - Male](http://www.nemhobby.com/t-plug-gold-connector-male-p34785.html)
+- [Ribbon cable](https://grobotronics.com/ribbon-cable-28awg-0.081mm2-14-wire.html)
 - Red, black wire
 - PCB Etching agent
-- (1mm drills)[https://www.ergaleiogatos.gr/shop/trypania-sidirou-hss-bluespot-set-10-temachion/]
+- [1mm drills](https://www.ergaleiogatos.gr/shop/trypania-sidirou-hss-bluespot-set-10-temachion/)
 - NEM PCB Shield
 
