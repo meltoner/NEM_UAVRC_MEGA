@@ -41,9 +41,10 @@ void Steer::apply(){
   // steering angle derivation
   int sensorValue = map(context->ext_sensors[0], 0, 255, -30, 30);
   
-  sensorValue = context->transferFunction(sensorValue, 2, 5, 30);
+  sensorValue = context->transferFunction(sensorValue, 3, 6, 30);
 
   int value = context->steer_center - sensorValue;
+ 
 
   if(abs(sensorValue) < 5)
     value = context->steer_center - getHeadingDifference();

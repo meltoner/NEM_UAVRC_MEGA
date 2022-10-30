@@ -14,14 +14,13 @@ void Telemetry::setup(Context &_context){
   telem.begin();
 
   telem.addSensor(IBUS_MEAS_TYPE_GPS_DIST); // distance from home
-  //telem.addSensor(0x0a); // satelites
-
-  telem.addSensor(0x0c);// lat 1st
-  telem.addSensor(IBUS_MEAS_TYPE_ARMED); // lat 2nd
-  telem.addSensor(IBUS_MEAS_TYPE_FLIGHT_MODE); // lon 1st
+  telem.addSensor(0x0c); // lat 2nd
   telem.addSensor(0x0e); // lon 2nd
+  telem.addSensor(IBUS_MEAS_TYPE_ARMED); // lat 1st
+  telem.addSensor(IBUS_MEAS_TYPE_FLIGHT_MODE); // lon 1st
   telem.addSensor(0x03); //external voltage
 
+  //telem.addSensor(0x0a); // satelites
   //telem.addSensor(IBUS_MEAS_TYPE_SPE); // speed m/s
 }
 
@@ -58,14 +57,15 @@ void Telemetry::apply(){
   //telem.setSensorValue(3, context->satellites );  // gps sattelites
  
   //lat
-  String toStringValue = double2string(context->latlng[0], 6);
-  telem.setSensorValue(2, stringPartInt(toStringValue, 0, 4) );  
-  telem.setSensorValue(3, stringPartInt(toStringValue, 4, 8) );  
+  String toStringValueA = double2string(context->latlng[0], 6);
+  String toStringValueB = double2string(context->latlng[1], 6);
+  
+  telem.setSensorValue(2, stringPartInt(toStringValueA, 4, 8) );  
+  telem.setSensorValue(3, stringPartInt(toStringValueB, 4, 8) );
+
   telem.run(); 
-  //lon
-  toStringValue = double2string(context->latlng[1], 6);
-  telem.setSensorValue(4, stringPartInt(toStringValue, 0, 4) );  
-  telem.setSensorValue(5, stringPartInt(toStringValue, 4, 8) );
+  telem.setSensorValue(4, stringPartInt(toStringValueA, 0, 4) );  
+  telem.setSensorValue(5, stringPartInt(toStringValueB, 0, 4) );  
   telem.setSensorValueFP(6, context->voltage);    // external voltage
 
   //telem.setSensorValue(8, context->speed * 100); // visible as speed

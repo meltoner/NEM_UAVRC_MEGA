@@ -49,7 +49,7 @@ Relay relayB(52, 1);
 void setup() {
   context.setup();  
   rgb.setup(context);
-  throttle.setup(context);      rgb.apply_color(0);  delay(500);
+  throttle.setup(context);      rgb.apply_color(0);  delay(100);
   remote.setup(context);        rgb.apply_color(1);  delay(500);
   delay(2000);
   mpu.setup(context);           rgb.apply_color(2);  delay(500);

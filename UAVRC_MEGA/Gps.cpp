@@ -31,7 +31,7 @@ void Gps::apply(){
     
     context->satellites = gps.satellites.value();
     //context->speed = gps.speed.mps();
-    context->isGPSLocked = context->latlng[0] != 0.0 || context->latlng[0] != 11.1111;
+    context->isGPSLocked = context->latlng[0] != 0.0 || context->latlng[0] != 11.111111;
 
     if(context->isGPSLocked){
       context->color = 1; // green gps is locked

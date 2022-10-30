@@ -22,6 +22,6 @@ void Battery::apply(){
   if(context->capacity > 100)
     context->capacity = 100;
 
-  context->isLowBattery = context->capacity < 75;
+  context->isLowBattery = context->capacity < 80;
 
 }

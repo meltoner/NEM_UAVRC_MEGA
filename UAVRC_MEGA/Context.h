@@ -32,7 +32,7 @@ class Context{
     boolean isGPSLocked = false;
     unsigned long GPSLockTime = 0;
 
-    double latlng[2] = {11.1111, 11.1112}; // gps position
+    double latlng[2] = {11.111111, 11.112222}; // gps position
     double latlngPast[2] = {-400, -400}; // gps position
     boolean isStationary = false;
 
