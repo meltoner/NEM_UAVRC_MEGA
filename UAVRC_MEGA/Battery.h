@@ -1,5 +1,5 @@
 /*
-  Battery.h - Library for wraping the functions controling the Battery power levels
+  Battery.h - Library for warping the functions controlling the Battery power levels
   Author - Konstantinos Papageorgiou kp at rei.gr 2022 
 */
 #ifndef Battery_h

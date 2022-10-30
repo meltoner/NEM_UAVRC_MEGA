@@ -14,11 +14,15 @@ class RGB{
     RGB(byte pin);
     void setup(Context &_context);
     void apply();
+    void apply_color(byte color);
+    void set_color(int red_value, int green_value, int blue_value);
   private:
-    int R[8] = {0,    255,  255,  0,    255,  255,  255,  255};
-    int G[8] = {255,  0,    255,  0,    0,    255,  0,    0};
-    int B[8] = {255,  255,  0,    255,  0,    0,    255,  0};
-    
+    boolean on = true;
+    //          red   green blue    yellow  blue    purple  tirquaz closed
+    int R[8] = {0,    255,  255,    0,      255,    60,     255,    255};
+    int G[8] = {255,  0,    255,    60,     60,     255,    0,      255};
+    int B[8] = {255,  255,  0,      255,    0,      0,      0,      255};
+
     Context *context;
 };
 

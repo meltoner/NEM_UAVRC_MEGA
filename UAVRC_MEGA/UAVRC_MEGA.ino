@@ -1,49 +1,11 @@
-// @author : Konstantinos Papageorgiou - 2022 - kp at rei.gr
+//
+// @author : Konstantinos L. Papageorgiou - 2022 - kp at rei.gr
 // @repo: https://github.com/meltoner/NEM_UAVRC_MEGA
 //
 // # NEM UAVRC MEGA
 // 
 // NEM Unmanned Vehicle Remote Controlled software on Arduino Mega 2550 pro
-// 
-// ## Software Features :
-// 
-// - Software utilises an MPU6050, GPS, Servo, ESC, magnetometer and an amphidromous remote control, powered by an arduino mega pro.
-// - Sensors and accuators are all in classes
-// - Impeleent seven tasks execution frequencies
-// - Adaptive steering based on target degrees
-// - Boots esc motor, and applies a non liner transfer function to the speed remote input
-// - Computes degrees heading at boot time, used as an offcet for the mpu degree heading
-// - Derives distance and degrees from a target gps LAT LOT
-// - Return to target gps / home on signal loss or switch D
-// - Adaptive speed while approaching target
-// - Detection of low battery and return to home
-// - Transmits distance of vehicle from target gps
-// - Lowers throttle while turning
-// - RGB Led indicator - no gps red, gps lock - green, return to home blue
-// - Variable led blinking indicator
-// - Target gps restoration, after power loss
-// 
-// ## Hardware
-// 
-// Sensors :
-// 
-// - Gps : Ublox M8N with compass
-// - Magmetometer : M8n's HMC5883
-// - Receiver : flysky F9-ia10b
-// - MPU : MPU6050
-// - Voltage sensor 0-25v MH-electronic
-// 
-// Main components : 
-// - Transmitter : flysky FS-I6X
-// - Receiver : [flysky FS-1A10B](https://www.flysky-cn.com/ia10b-canshu)
-// - Arduino mega pro 2560 
-// 
-// Other: 
-// 
-// - 10mm LED Green and Red
-// - RGB LED
-// - 3 Pin Female connectors, ribbon cable, conectors, 3d mount board, box, battery, etc
-
+//
 
 #include "Context.h"
 #include "Invoker.h"
@@ -52,101 +14,131 @@
 #include "Gps.h" 
 #include "Mpu.h" 
 #include "Steer.h"
+#include "hook.h"
 #include "Throttle.h"
 #include "Remote.h"
+#include "Telemetry.h"
 #include "Home.h"
-#include "Blink.h"
 #include "RGB.h"
 #include "Battery.h"
+#include "Relay.h"
 
 Context context(0);
 Invoker invoker(0);
 
 Mag mag(0);
 Gps gps(0);
-Mpu mpu(4);
-Steer steer(3);
+Mpu mpu(0);
+
 Throttle throttle(2);
+Steer steer(4);
+Hook hook(6);
+
 Remote remote(0);
+Telemetry telemetry(0);
+
 Home home(0);
-Blink blink(0);
 RGB rgb(0);
 Battery battery(0);
+
+Relay relayA(50, 0);
+Relay relayB(52, 1);
 
 //-----------------------------------------
 
 void setup() {
-  context.setup();
-  blink.setup(context);
+  context.setup();  
   rgb.setup(context);
-  remote.setup(context);
-  throttle.setup(context);
+  throttle.setup(context);      rgb.apply_color(0);  delay(500);
+  remote.setup(context);        rgb.apply_color(1);  delay(500);
   delay(2000);
-  mpu.setup(context);
-  mag.setup(context);
-  steer.setup(context);
-  gps.setup(context);
-  battery.setup(context);
+  mpu.setup(context);           rgb.apply_color(2);  delay(500);
+  mag.setup(context);           rgb.apply_color(3);  delay(500);
+  hook.setup(context);          
+  gps.setup(context);           rgb.apply_color(5);  delay(500);
+  steer.setup(context);         rgb.apply_color(4);  delay(200);
+  battery.setup(context);       rgb.apply_color(6);  delay(500);
   home.setup(context);
   invoker.setup(context);
+  relayA.setup(context);
+  relayB.setup(context);        context.color = 3;  delay(500);
+  telemetry.setup(context);
+
 }
 
-void apply_very_fast_invoker(){
+//-----------------------------------------
+
+void apply_interval_0(){
   mag.apply();
+  telemetry.apply();
   mpu.apply();
 }
 
-void apply_fast_invoker(){
+void apply_interval_1(){
   remote.apply();
   steer.apply();
   throttle.apply();
-
 }
 
-void apply_invoker(){
+void apply_interval_2(){
   gps.apply();
+  telemetry.run();
   home.apply();
   rgb.apply();
+  telemetry.run();
+  relayA.apply();
+  relayB.apply();  
 }
 
-void apply_slow_invoker(){
-  context.apply(); // every 0.5 second printout / log enviromental variables
-  remote.telemetry();
+void apply_interval_3(){
+  context.apply();
+  hook.apply();
 }
 
-void heartBeat(){
-  // Every : 2s when no gps, 1sec when gps lock, 0.5 seconds when returing to home is active, 0.1 second when power is less than 30%.
-  blink.apply();
+void apply_interval_4(){
 }
 
-void apply_slower_invoker(){
+void apply_interval_5(){
   battery.apply();
 }
 
-void updateMagOffset(){
+void apply_interval_6(){
   if(context.toHomeActive)
     mag.updateMagOffset();
+
+  gps.testStationary();
 }
+
+void apply_interval_7(){
+  home.bursts();
+}
+
+
+//-----------------------------------------
 
 void run_invoker(int i){
     switch(i){
-      case 0: apply_very_fast_invoker(); break;
-      case 1: apply_fast_invoker(); break;
-      case 2: apply_invoker(); break;
-      case 3: apply_slow_invoker(); break;
-      case 4: apply_slower_invoker(); break;
-      case 5: heartBeat(); break;
-      case 6: updateMagOffset();break;
-      case 7: home.bursts();break;
+      case 0: apply_interval_0(); break;
+      case 1: apply_interval_1(); break;
+      case 2: apply_interval_2(); break;
+      case 3: apply_interval_3(); break;
+      case 4: apply_interval_4(); break;
+      case 5: apply_interval_5(); break;
+      case 6: apply_interval_6();break;
+      case 7: apply_interval_7();break;
       case 100: break;
     }
 }
 
+//-----------------------------------------
+
 void loop(){
   mpu.update();
+  telemetry.run();
   int actionIndex = invoker.apply();
   while(actionIndex != 100){
     run_invoker(actionIndex);
+    telemetry.run();
     actionIndex = invoker.apply();
-  }
+  } 
 }

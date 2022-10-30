@@ -5,7 +5,6 @@
 
 #include "Arduino.h"
 #include "Context.h"
-#include <EEPROM.h>
 
 Context::Context(byte pin){  
   _pin = pin;
@@ -13,8 +12,6 @@ Context::Context(byte pin){
 
 void Context::setup(){
     Serial.begin(9600);
-    EEPROM.get(0, TARGET_LAT);
-    EEPROM.get(sizeof(long), TARGET_LNG);
 }
 
 void Context::reflectSensor(float value, byte precission){
@@ -22,7 +19,7 @@ void Context::reflectSensor(float value, byte precission){
   Serial.print(" ");
 }
 
-void Context::apply(){ // takes 4% of memory
+void Context::apply(){ 
 
   reflectSensor(capacity, 1); 
   reflectSensor(voltage, 1); 
@@ -34,8 +31,8 @@ void Context::apply(){ // takes 4% of memory
   for(int i = 0; i < 3; i++)
     reflectSensor(derivatives[i], 1); // offset, heading
 
-  for(int i = 0; i < 2; i++)
-    reflectSensor(actuators[i], 1); // Servo Steer value, Throttle    
+  for(int i = 0; i < 3; i++)
+    reflectSensor(actuators[i], 1); // Steer, Throttle, hook servos    
 
   // Flysky remote control values
   for(int i = 0; i < 10; i++)
@@ -43,6 +40,9 @@ void Context::apply(){ // takes 4% of memory
 
   for(int i = 0; i < 2; i++)
     reflectSensor(latlng[i], 6); // current gps
+
+  reflectSensor(satellites, 0);
+  reflectSensor(speed, 1);
 
   for(int i = 0; i < 3; i++)
     reflectSensor(targets[i], 1); // Target heading, GPS return to home target heading, Gps return to home target distance in meters
@@ -80,8 +80,6 @@ boolean Context::isSwitchD(){
 void Context::setGPSTarget(double LAT, double LNG){
   TARGET_LAT = LAT;
   TARGET_LNG = LNG;
-  EEPROM.put(0, LAT);
-  EEPROM.put(sizeof(long), LNG);
 }
 
 int Context::transferFunction(int value, int theshold, int add, int divider){

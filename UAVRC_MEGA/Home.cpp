@@ -13,37 +13,34 @@ void Home::setup(Context &_context){
   context = &_context;
 }
 
+// Derive target heading and speed from gps target
 void Home::apply(){
+  
   // Update return to home gps target
-  if( context->isSwitchB() && context->isGPSLocked ){    
+  if( context->isSwitchC() && context->isGPSLocked ){    
     context->setGPSTarget( context->latlng[0], context->latlng[1]);
     context->targets[0] = context->targets[1];
   }
 
-  context->toHomeActive = context->isSwitchA() && context->isSwitchD() && context->isGPSLocked;
+  context->toHomeActive = context->isSwitchD();
   
-  // Derive target heading and speed from gps target
   if(context->toHomeActive){
-    context->color = 2;
+    context->color = 5; // purple
     context->targets[0] = context->targets[1];
 
-    for(int i = 0 ;i < 5;i++){
+    for(int i = 0; i < 5; i++){
       if(context->targets[2] > distance[i]){
         context->toHomeSpeedWeight = speedWeight[i];
-
         if(context->toHomeWait){
           context->toHomeSpeedWeight = 0;
           context->intervals[7] = offTime[i];
         }else{
           context->intervals[7] = onTime[i];
         }
-
         break;
       }
     }
-
   }
-
 }
 
 void Home::bursts(){

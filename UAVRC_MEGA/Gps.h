@@ -15,7 +15,8 @@ class Gps{
     Gps(byte pin);
     void setup(Context &_context);
     void apply();
-    void processTarget();    
+    void processTarget();
+    void testStationary();
 
   private:
     Context *context;

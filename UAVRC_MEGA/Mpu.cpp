@@ -23,6 +23,7 @@ void Mpu::setup(Context &_context){
   Wire.setClock(400000); // 400kHz I2C clock. Comment this line if having compilation difficulties
   Wire.setWireTimeout(3000, true); //timeout value in uSec
   
+  Serial.println(F("Begin mpu"));
   while(sensor.begin() != 0);
   
   Serial.println(F("Do not move"));

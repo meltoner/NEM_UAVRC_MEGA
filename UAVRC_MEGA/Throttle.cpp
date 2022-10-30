@@ -20,10 +20,14 @@ void Throttle::setup(Context &_context){
 }
 
 void Throttle::apply(){
-  if(context->toHomeActive)    
-    setThrottle( (int)( (float)context->toHomeSpeed * context->toHomeSpeedWeight), 50);    
-  else
+  if(context->toHomeActive){
+    if(context->toHomeSet && context->isGPSLocked)
+      setThrottle( (int)( (float)context->toHomeSpeed * context->toHomeSpeedWeight), 50);
+    else
+      setThrottle(0, 50);
+  }else{
     setThrottle(context->transferFunction(context->ext_sensors[2], 15, 20, 300), context->ext_sensors[4]);
+  }
 }
 
 void Throttle::setThrottle(int value, int limiter){

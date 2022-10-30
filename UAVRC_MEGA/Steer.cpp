@@ -38,35 +38,31 @@ void Steer::setSteer(int value){
 }
 
 void Steer::apply(){
-
   // steering angle derivation
   int sensorValue = map(context->ext_sensors[0], 0, 255, -30, 30);
   
-  sensorValue = context->transferFunction(sensorValue, 3, 6, 30);
+  sensorValue = context->transferFunction(sensorValue, 2, 5, 30);
 
-  //sensorValue = (int)((float)sensorValue * (abs((float)sensorValue)/30));
   int value = context->steer_center - sensorValue;
 
-  if(context->isSwitchA())
-    if(abs(sensorValue) < 5)
-      value = context->steer_center - getHeadingDifference();
-    else
-      context->targets[0] = context->derivatives[1] + sensorValue * 1.2;      
-    
+  if(abs(sensorValue) < 5)
+    value = context->steer_center - getHeadingDifference();
+  else
+    context->targets[0] = context->derivatives[1] + sensorValue * 1.2;
+
   // save power when reached context->steer_center
-  if(context->actuators[0] == value && abs(value - context->steer_center) < 4 ){
-    if(on && (context->now - applied) > 1000  ){    
+  if( context->actuators[0] == value ){
+    if(on && (context->now - applied) > 4000 ){    
       steer.detach();
       on = false;      
     }
   }else{
     if(!on){
-      steer.attach(_pin);
+      steer.attach( _pin );
       on = true;
     }
   }
 
-  if(on)
-    setSteer( value );
+  if(on)setSteer( value );
 
 }
