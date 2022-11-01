@@ -18,7 +18,7 @@ class RGB{
     void set_color(int red_value, int green_value, int blue_value);
   private:
     boolean on = true;
-    //          red   green blue    yellow  blue    purple  tirquaz closed
+    //          red   green blue    yellow  cyan    purple  tirquaz closed
     int R[8] = {0,    255,  255,    0,      255,    60,     255,    255};
     int G[8] = {255,  0,    255,    60,     60,     255,    0,      255};
     int B[8] = {255,  255,  0,      255,    0,      0,      0,      255};

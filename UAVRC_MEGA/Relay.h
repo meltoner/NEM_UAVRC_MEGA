@@ -14,8 +14,10 @@ class Relay{
     Relay(byte pin, byte position);
     void setup(Context &_context);
     void apply();
+    void toggle();
   private:
     Context *context;
+    boolean state = false;
     byte port;
     byte index;
 };

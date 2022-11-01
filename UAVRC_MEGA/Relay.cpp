@@ -20,6 +20,14 @@ void Relay::setup(Context &_context){
   apply();
 }
 
+void Relay::toggle(){
+  state = !state;
+}
+
 void Relay::apply(){
-  digitalWrite(port, context->isSwitchA());
+  if(!context->isLowBattery){
+    digitalWrite(port, context->isSwitchA());
+  }else{
+    digitalWrite(port, state);
+  }
 }

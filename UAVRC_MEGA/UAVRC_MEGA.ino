@@ -49,19 +49,20 @@ Relay relayB(52, 1);
 void setup() {
   context.setup();  
   rgb.setup(context);
-  throttle.setup(context);      rgb.apply_color(0);  delay(100);
-  remote.setup(context);        rgb.apply_color(1);  delay(500);
-  delay(2000);
-  mpu.setup(context);           rgb.apply_color(2);  delay(500);
-  mag.setup(context);           rgb.apply_color(3);  delay(500);
+  throttle.setup(context);      rgb.apply_color(1); // green
+  delay(3000);                  rgb.apply_color(2); // blue
+  
+  mpu.setup(context);           rgb.apply_color(3);  delay(500); // yellow
+  mag.setup(context);           rgb.apply_color(4);  delay(500); 
   hook.setup(context);          
   gps.setup(context);           rgb.apply_color(5);  delay(500);
-  steer.setup(context);         rgb.apply_color(4);  delay(200);
-  battery.setup(context);       rgb.apply_color(6);  delay(500);
-  home.setup(context);
+  steer.setup(context);         
+  battery.setup(context);       
+  home.setup(context);          rgb.apply_color(6);  delay(500);
   invoker.setup(context);
   relayA.setup(context);
   relayB.setup(context);        context.color = 3;  delay(500);
+  remote.setup(context);        
   telemetry.setup(context);
 
 }
@@ -96,6 +97,7 @@ void apply_interval_3(){
 }
 
 void apply_interval_4(){
+  relayA.toggle();
 }
 
 void apply_interval_5(){
