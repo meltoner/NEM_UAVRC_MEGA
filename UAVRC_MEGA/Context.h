@@ -59,7 +59,7 @@ class Context{
 
     // Power related
     float voltage = 0;
-    byte capacity = 0;
+    byte capacity = 100;
 
     boolean isLowBattery = false;
 
